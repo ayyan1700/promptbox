@@ -1,0 +1,87 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   .main{
+    text-align: center;
+   }
+   h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+   }
+   button{
+    color: aquamarine;
+    background-color: rgb(44, 81, 112);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+   }
+    .box{
+        margin-top: 30px;
+        width: 100px;
+        margin: 30px  auto;
+        height: 100px;
+        background-color: rgb(44, 81, 112);
+        border: 1px solid aquamarine;
+    }
+   .text{
+       margin: auto auto;
+       width: 300px;
+       height: 300px;
+       text-align: justify;
+   }
+   p{
+    font-size: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+   }
+  
+</style>
+<body> 
+    <div class="main">
+      <h1>Fill the given prompt and make the own code</h1> 
+      <button onclick="generate()">GenerateCode</button>
+      <div class="box"> </div>
+      <p>Code show is here:</p>
+      <div class="text">
+      <pre id="codeCss"> </pre>
+    </div>
+    </div> 
+
+    <script>
+    function generate(){
+     var width = prompt("enter width eg: 200px");
+     var heigth = prompt("enter heigth eg: 200px");
+     var backgroundColor = prompt("enter backgroundColor eg: red");
+     var boxShadow = prompt("enter boxShadow eg: 0px 5px 10px");
+     var boxshadowColor = prompt("enter boxshadowColor eg: grey");
+     var border = prompt("enter border eg: 2px");
+     var borderRadius = prompt("enter borderRadius eg: 20px");
+
+     var box = document.querySelector('.box');
+     box.style.width = width;
+     box.style.heigth = heigth;
+     box.style.backgroundColor = backgroundColor;
+     box.style.boxShadow = `${boxShadow} ${boxshadowColor}`;
+     box.style.border = border;
+     box.style.borderRadius = borderRadius;
+     
+     var vssCode = `
+        .box {
+           width: ${width};
+           heigth: ${heigth};
+           backgroundColor: ${backgroundColor};
+           boxShadow: ${boxShadow} ${boxshadowColor};
+           border:  ${border};
+           borderRadius: ${borderRadius};
+         } 
+     `;
+     document.getElementById("codeCss").textContent = vssCode;
+    }
+    </script>
+</body>
+</html> 
